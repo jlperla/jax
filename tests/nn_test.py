@@ -478,7 +478,7 @@ class NNFunctionsTest(jtu.JaxTestCase):
 
   def testIdentity(self):
     x  = jnp.array([1., 2., 3.])
-    self.assertAllClose(nn.identity(), x, check_dtypes=False)
+    self.assertAllClose(nn.identity(x), x, check_dtypes=False)
     grad = jax.grad(nn.identity)(6.0)
     self.assertEqual(grad, 1.)
 
